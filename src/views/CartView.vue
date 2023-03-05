@@ -1,10 +1,11 @@
 <template>
   <div>
-    關於我們
+    收藏課程
   </div>
 </template>
 
 <script>
 export default {
+
 }
 </script>

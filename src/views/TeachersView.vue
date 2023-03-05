@@ -1,6 +1,6 @@
 <template>
   <div>
-    關於我們
+    導師列表
   </div>
 </template>
 

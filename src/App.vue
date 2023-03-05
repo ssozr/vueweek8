@@ -4,20 +4,38 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="header row">
+      <div class="d-flex justify-content-between py-4 m-0 px-0">
+        <div>
+          <RouterLink to="/"><img h-24 src="https://s3-alpha-sig.figma.com/img/c808/7901/34a7249bffdfebe8fca256378bad1a3e?Expires=1678665600&Signature=VsPOZUuQP70-5ZMFIs6MfeHIY~OtNV701HU5eIwArSWPfhJL3KFdgwOR5Jy4ver~fKF5dHdMahBUmPXohZMnJ05u6tFWLJlYUWF60oz~ln8tQrvova9RFzRIO5FzMI9cd8X2KqQSak8fAgmoobDANqP6b~xML7Xa~ATvVJTGLXwGpIAir6fz1-1DxK1s1XnqET3SIpGIkaaYgayKQG~Zc4KcrnrY4TRUn8mgy6dAs-6wfnQ~Bj22O7vd6R9ImiQn4plRdCu0unPXGVkoR~XWunm3no9KMU8SrB8ldIrDu8Z8VeUGRyadGaMEMIE7m8JfYRXcq2pEJNoFWAW~i72XtQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt=""></RouterLink>
+        </div>
+        <ul class="d-flex m-0 p-0">
+          <li class="me-6"><RouterLink to="/article">文章分享</RouterLink></li>
+          <li class="me-6"><RouterLink to="/about">關於我們</RouterLink></li>
+          <li class="me-6"><RouterLink to="/teachers">導師列表</RouterLink></li>
+          <li><RouterLink to="/cart">收藏課程</RouterLink></li>
+        </ul>
+      </div>
+      <hr class="m-0">
+     </div>
     </div>
-  </header>
-
-  <RouterView />
+      <RouterView />
+    <div class="container">
+      <div class="footer row">
+        <div class="text-center">
+          <div class="mb-17"><img src="https://s3-alpha-sig.figma.com/img/c808/7901/34a7249bffdfebe8fca256378bad1a3e?Expires=1678665600&Signature=VsPOZUuQP70-5ZMFIs6MfeHIY~OtNV701HU5eIwArSWPfhJL3KFdgwOR5Jy4ver~fKF5dHdMahBUmPXohZMnJ05u6tFWLJlYUWF60oz~ln8tQrvova9RFzRIO5FzMI9cd8X2KqQSak8fAgmoobDANqP6b~xML7Xa~ATvVJTGLXwGpIAir6fz1-1DxK1s1XnqET3SIpGIkaaYgayKQG~Zc4KcrnrY4TRUn8mgy6dAs-6wfnQ~Bj22O7vd6R9ImiQn4plRdCu0unPXGVkoR~XWunm3no9KMU8SrB8ldIrDu8Z8VeUGRyadGaMEMIE7m8JfYRXcq2pEJNoFWAW~i72XtQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt=""></div>
+          <a class="mb-2" href="#">Line icon</a>
+          <ul class="fs-6 text-gray-04 mb-3">
+            <li class="mb-1">客服信箱：ＸＸＸＸ＠gmail.com </li>
+            <li>客服電話：0912345678</li>
+          </ul>
+          <p class="f-7 text-primary mb-8">正視心靈 © 2023 Copyright</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>

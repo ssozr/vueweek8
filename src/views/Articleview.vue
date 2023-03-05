@@ -1,6 +1,6 @@
 <template>
   <div>
-    關於我們
+    這是文章列表
   </div>
 </template>
 
