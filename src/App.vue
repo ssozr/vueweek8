@@ -5,39 +5,82 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <div class="container-fluid">
-    <div class="container">
+    <div class="border-bottom">
+      <div class="container-xl">
       <div class="header row">
       <div class="d-flex justify-content-between py-4 m-0 px-0">
         <div>
-          <RouterLink to="/"><img h-24 src="https://s3-alpha-sig.figma.com/img/c808/7901/34a7249bffdfebe8fca256378bad1a3e?Expires=1678665600&Signature=VsPOZUuQP70-5ZMFIs6MfeHIY~OtNV701HU5eIwArSWPfhJL3KFdgwOR5Jy4ver~fKF5dHdMahBUmPXohZMnJ05u6tFWLJlYUWF60oz~ln8tQrvova9RFzRIO5FzMI9cd8X2KqQSak8fAgmoobDANqP6b~xML7Xa~ATvVJTGLXwGpIAir6fz1-1DxK1s1XnqET3SIpGIkaaYgayKQG~Zc4KcrnrY4TRUn8mgy6dAs-6wfnQ~Bj22O7vd6R9ImiQn4plRdCu0unPXGVkoR~XWunm3no9KMU8SrB8ldIrDu8Z8VeUGRyadGaMEMIE7m8JfYRXcq2pEJNoFWAW~i72XtQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt=""></RouterLink>
+          <RouterLink  to="/" @click="changeBtn()"><img h-24 src="https://s3-alpha-sig.figma.com/img/c808/7901/34a7249bffdfebe8fca256378bad1a3e?Expires=1678665600&Signature=VsPOZUuQP70-5ZMFIs6MfeHIY~OtNV701HU5eIwArSWPfhJL3KFdgwOR5Jy4ver~fKF5dHdMahBUmPXohZMnJ05u6tFWLJlYUWF60oz~ln8tQrvova9RFzRIO5FzMI9cd8X2KqQSak8fAgmoobDANqP6b~xML7Xa~ATvVJTGLXwGpIAir6fz1-1DxK1s1XnqET3SIpGIkaaYgayKQG~Zc4KcrnrY4TRUn8mgy6dAs-6wfnQ~Bj22O7vd6R9ImiQn4plRdCu0unPXGVkoR~XWunm3no9KMU8SrB8ldIrDu8Z8VeUGRyadGaMEMIE7m8JfYRXcq2pEJNoFWAW~i72XtQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt=""></RouterLink>
         </div>
-        <ul class="d-flex m-0 p-0">
+          <button type="button" class="btn btn-white d-md-none" @click="menuByn()">
+            <span class="material-symbols-outlined">
+            menu
+          </span>
+          </button>
+        <div class="d-none d-md-block">
+          <ul class="d-flex m-0 p-0 header-list">
           <li class="me-6"><RouterLink to="/article">文章分享</RouterLink></li>
           <li class="me-6"><RouterLink to="/about">關於我們</RouterLink></li>
           <li class="me-6"><RouterLink to="/teachers">導師列表</RouterLink></li>
           <li><RouterLink to="/cart">收藏課程</RouterLink></li>
         </ul>
+        </div>
       </div>
-      <hr class="m-0">
      </div>
+      </div>
     </div>
-      <RouterView />
-    <div class="container">
-      <div class="footer row">
+    <div class="menu" :class="{ 'd-none': !menuContent }">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="text-center ps-0 pb-16">
+            <RouterLink to="/"  @click="changeBtn()"><img h-24 src="https://s3-alpha-sig.figma.com/img/c808/7901/34a7249bffdfebe8fca256378bad1a3e?Expires=1678665600&Signature=VsPOZUuQP70-5ZMFIs6MfeHIY~OtNV701HU5eIwArSWPfhJL3KFdgwOR5Jy4ver~fKF5dHdMahBUmPXohZMnJ05u6tFWLJlYUWF60oz~ln8tQrvova9RFzRIO5FzMI9cd8X2KqQSak8fAgmoobDANqP6b~xML7Xa~ATvVJTGLXwGpIAir6fz1-1DxK1s1XnqET3SIpGIkaaYgayKQG~Zc4KcrnrY4TRUn8mgy6dAs-6wfnQ~Bj22O7vd6R9ImiQn4plRdCu0unPXGVkoR~XWunm3no9KMU8SrB8ldIrDu8Z8VeUGRyadGaMEMIE7m8JfYRXcq2pEJNoFWAW~i72XtQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt=""></RouterLink>
+          </div>
+          <ul>
+            <li class="fs-6 text-center mb-8" @click="changeBtn()"><RouterLink to="/article">文章分享</RouterLink></li>
+            <li class="fs-6 text-center mb-8"  @click="changeBtn()"><RouterLink to="/about">關於我們</RouterLink></li>
+            <li class="fs-6 text-center mb-8"  @click="changeBtn()"><RouterLink to="/teachers">導師列表</RouterLink></li>
+            <li class="fs-6 text-center mb-8"  @click="changeBtn()"><RouterLink to="/cart">收藏課程</RouterLink></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+      <div v-if="!menuContent">
+        <RouterView />
+      </div>
+    <div class="container footer " v-if="!menuContent">
+      <div class="row">
         <div class="text-center">
           <div class="mb-17"><img src="https://s3-alpha-sig.figma.com/img/c808/7901/34a7249bffdfebe8fca256378bad1a3e?Expires=1678665600&Signature=VsPOZUuQP70-5ZMFIs6MfeHIY~OtNV701HU5eIwArSWPfhJL3KFdgwOR5Jy4ver~fKF5dHdMahBUmPXohZMnJ05u6tFWLJlYUWF60oz~ln8tQrvova9RFzRIO5FzMI9cd8X2KqQSak8fAgmoobDANqP6b~xML7Xa~ATvVJTGLXwGpIAir6fz1-1DxK1s1XnqET3SIpGIkaaYgayKQG~Zc4KcrnrY4TRUn8mgy6dAs-6wfnQ~Bj22O7vd6R9ImiQn4plRdCu0unPXGVkoR~XWunm3no9KMU8SrB8ldIrDu8Z8VeUGRyadGaMEMIE7m8JfYRXcq2pEJNoFWAW~i72XtQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt=""></div>
-          <a class="mb-2" href="#">Line icon</a>
+          <div class="d-flex justify-content-center mb-2">
+            <div class="img-line"></div>
+          </div>
           <ul class="fs-6 text-gray-04 mb-3">
             <li class="mb-1">客服信箱：ＸＸＸＸ＠gmail.com </li>
             <li>客服電話：0912345678</li>
           </ul>
-          <p class="f-7 text-primary mb-8">正視心靈 © 2023 Copyright</p>
+          <p class="f-7 text-primary mb-8 text-center">正視心靈 © 2023 Copyright</p>
         </div>
       </div>
     </div>
   </div>
 </template>
-
+<script>
+export default{
+  data () {
+    return {
+      menuContent: false
+    }
+  },
+  methods: {
+    menuByn () {
+      this.menuContent = !this.menuContent
+    },
+    changeBtn () {
+      this.menuContent = false
+    }
+  }
+}
+</script>
 <style scoped>
 header {
   line-height: 1.5;
