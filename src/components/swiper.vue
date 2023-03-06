@@ -75,7 +75,7 @@ body {
           <div class="bg-primary border-primary d-flex justify-content-center">
             <div class="rounded-circle border border-secondary position-relative " style="width: 308px;">
               <div class="teacher-1 m-5"></div>
-              <img src="../assets/images/Ellipse 18.png" alt="" class="position-absolute top-0 end-0">
+              <img src="../assets/images/Ellipse18.png" alt="" class="position-absolute top-0 end-0">
             </div>
           </div>
           <div class="card-body bg-primary p-0">
@@ -94,7 +94,7 @@ body {
           <div class="bg-primary border-primary d-flex justify-content-center">
             <div class="rounded-circle border border-secondary position-relative " style="width: 308px;">
               <div class="teacher-2 m-5"></div>
-              <img src="../assets/images/Ellipse 18.png" alt="" class="position-absolute bottom-0 end-0">
+              <img src="../assets/images/Ellipse18.png" alt="" class="position-absolute bottom-0 end-0">
             </div>
           </div>
           <div class="card-body bg-primary p-0">
