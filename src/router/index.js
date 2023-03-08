@@ -6,32 +6,39 @@ const router = createRouter({
   linkActiveClass: 'active',
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
-    },
-    {
-      path: '/article',
-      name: 'article',
-      component: () => import('../views/ArticleView.vue')
-    },
-    {
-      path: '/teachers',
-      name: 'teachers',
-      component: () => import('../views/teachersView.vue')
-    },
-    {
-      path: '/cart',
-      name: 'cart',
-      component: () => import('../views/CartView.vue')
+      path:'/',
+      component: () => import('../views/FrontLayout.vue'),
+      children: [
+        {
+          path: 'about',
+          name: 'about',
+          // route level code-splitting
+          // this generates a separate chunk (About.[hash].js) for this route
+          // which is lazy-loaded when the route is visited.
+          component: () => import('../views/AboutView.vue')
+        },
+        {
+          path: 'article',
+          name: 'article',
+          component: () => import('../views/ArticleView.vue')
+        },
+        {
+          path: 'teachers',
+          name: 'teachers',
+          component: () => import('../views/ClassView.vue')
+        },
+        {
+          path: 'cart',
+          name: 'cart',
+          component: () => import('../views/CartView.vue')
+        },
+        {
+          path: '',
+          name: 'home',
+          component: HomeView
+        },
+      ]
+      
     },
   ]
 })
