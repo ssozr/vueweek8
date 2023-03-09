@@ -31,7 +31,7 @@
               <li><p class="fs-4 m-0">課程總額:<span class="ms-4">NT${{ classData.price }}</span></p></li>
             </ul>
             <div class="d-flex">
-              <button type="button" class="btn btn-primary">收藏課程</button>
+              <button type="button" class="btn btn-primary" @click="addCart(classData)">收藏課程</button>
               <button type="button" class="btn btn-primary ms-6">立即上課</button>
             </div>
           </div>
@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 const { VITE_PATH, VITE_URL} = import.meta.env
 export default{
   data () {
@@ -72,6 +73,20 @@ export default{
         .then((res) => {
           console.log(res)
           this.classData = res.data.product
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    addCart (item) {
+      const data = {
+        product_id: item.id,
+        qty: 1
+      }
+      this.$http.post(`${VITE_URL}/v2/api/${VITE_PATH}/cart`, { data })
+        .then((res) => {
+          console.log(res)
+          Swal.fire(`${res.data.message}`)
         })
         .catch((err) => {
           console.log(err)
