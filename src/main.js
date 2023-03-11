@@ -1,29 +1,45 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { defineRule, configure } from 'vee-validate';
-import { required, email } from '@vee-validate/rules';
-import AllRules from '@vee-validate/rules';
+import { Field, Form, ErrorMessage, defineRule, configure } from 'vee-validate'
+import {
+  required,
+  email,
+  min,
+  length,
+  numeric,
+  confirmed
+} from '@vee-validate/rules'
+import { localize, setLocale } from '@vee-validate/i18n'
+import zhTw from '@vee-validate/i18n/dist/locale/zh_TW.json'
 
+defineRule('required', required)
+defineRule('email', email)
+defineRule('min', min)
+defineRule('length', length)
+defineRule('numeric', numeric) // 必數字
+defineRule('confirmed', confirmed) // 字串全等
+configure({
+  generateMessage: localize({
+    zh_TW: zhTw
+  }),
+  validateOnInput: true
+})
+setLocale('zh_TW')
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import App from './App.vue'
 import router from './router'
 import 'bootstrap'
 import Swiper from 'swiper'
-import * as VeeValidate from 'vee-validate';
 
-VeeValidateI18n.loadLocaleFromURL('./zh_TW.json');
 
 import './assets/all.scss'
-Object.keys(AllRules).forEach(rule => {
-    defineRule(rule, AllRules[rule]);
-  });
 
 
 const app = createApp(App)
-app.component('VForm', VeeValidate.Form);
-app.component('VField', VeeValidate.Field);
-app.component('ErrorMessage', VeeValidate.ErrorMessage);
+app.component('VForm', Form)
+app.component('VField', Field)
+app.component('VErrorMessage', ErrorMessage)
 app.use(createPinia())
 app.use(router)
 app.use(VueAxios, axios)

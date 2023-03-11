@@ -129,13 +129,26 @@
         </div>
       </div>
     </div>
+    <v-form v-slot="{ errors }" @submit="onSubmit" >
+        <v-field
+  id="email"
+  name="email"
+  type="email"
+  class="form-control"
+  :class="{ 'is-invalid': errors['email'] }"
+  placeholder="請輸入 Email" rules="email|required"
+  v-model="user.email"
+></v-field>
+<error-message name="email" class="invalid-feedback"></error-message></v-form>
   </div>
 </template>
 
 <script>
+import ab from '../components/AB.vue'
 import { Modal } from 'bootstrap'
 import Swal from 'sweetalert2'
 const { VITE_URL, VITE_PATH } = import.meta.env
+
 export default {
     data () {
     return {
@@ -144,7 +157,13 @@ export default {
       delData: {},
       delId: '',
       disabled: false,
+      user: {
+        email: ''
+      }
     }
+  },
+  components: {
+    ab
   },
   methods: {
     nextBtn(){
