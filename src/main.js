@@ -11,7 +11,9 @@ import router from './router'
 import 'bootstrap'
 import Swiper from 'swiper'
 import * as VeeValidate from 'vee-validate';
+
 VeeValidateI18n.loadLocaleFromURL('./zh_TW.json');
+
 import './assets/all.scss'
 Object.keys(AllRules).forEach(rule => {
     defineRule(rule, AllRules[rule]);
