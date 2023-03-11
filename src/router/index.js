@@ -41,6 +41,10 @@ const router = createRouter({
           name: 'home',
           component: HomeView
         },
+        {
+          path: 'order',
+          component: () => import('../views/OrderView.vue')
+        }
       ]
       
     },
