@@ -129,22 +129,65 @@
         </div>
       </div>
     </div>
-    <v-form v-slot="{ errors }" @submit="onSubmit" >
-        <v-field
-  id="email"
-  name="email"
-  type="email"
-  class="form-control"
-  :class="{ 'is-invalid': errors['email'] }"
-  placeholder="請輸入 Email" rules="email|required"
-  v-model="user.email"
-></v-field>
-<error-message name="email" class="invalid-feedback"></error-message></v-form>
+    <div class="container">
+      <div class="row">
+        <v-form v-slot="{ errors }" @submit="onSubmit">
+          <div class="row">
+            <div class="mb-3 col-md-6"> <!-- 信箱 -->
+              <label for="email" class="form-label">信箱: <span v-if="errors['email']" class="text-danger">{{ errors.email }}</span></label>
+              <v-field id="email"
+                name="email"
+                type="email"
+                class="form-control"
+                :class="{ 'is-invalid': errors['email'] }"
+                placeholder="請輸入 Email" rules="email|required"
+                v-model="user.email">
+              </v-field>
+              <error-message name="email" class="invalid-feedback"></error-message>
+            </div>
+            <div class="mb-3 col-md-6"> <!-- 電話 -->
+              <label for="phone" class="form-label">手機號碼: <span v-if="errors['電話']" class="text-danger">{{ errors['電話'] }}</span></label>
+              <v-field id="phone"
+                name="電話"
+                type="text"
+                class="form-control"
+                :class="{ 'is-invalid': errors['電話'] }"
+                placeholder="0912345678"
+                :rules="isPhone"
+                v-model="user.phone">
+              </v-field>
+              <error-message name="電話" class="invalid-feedback"></error-message>
+            </div>
+            <div class="input-group mb-3"> <!-- 地址 -->
+              <label style="width: 100%;" for="地址" class="form-label">地址: <span v-if="errors['地址']" class="text-danger">{{ errors.地址 }}</span></label>
+              <select class="btn btn-outline-secondary" @change="city" v-model="address.city"> <!-- 縣市 -->
+                <option value="" v-if="!address.city">請選擇</option>
+                <option :value="address.CityName" v-for="(address, index) in addressData" :key="index">{{ address.CityName }}</option>
+              </select>
+              <select class="btn btn-outline-secondary" :disabled="!address.city" v-model="address.areaName"> <!-- 縣市 -->
+                <option value=""  v-if="!address.areaName">請選擇</option>
+                <option :value="areaName.AreaName" v-for="(areaName, index) in address.areaList" :key="index">{{ areaName.AreaName }}</option>
+              </select>
+              <v-field id="地址"
+                name="地址"
+                type="text"
+                class="form-control"
+                :class="{ 'is-invalid': errors['地址'] }"
+                placeholder="請輸入 路段 門牌號碼" rules="required"
+                v-model="user.address"
+                :disabled="!address.areaName">
+              </v-field>
+              <error-message name="地址" class="invalid-feedback"></error-message>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </v-form>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import ab from '../components/AB.vue'
 import { Modal } from 'bootstrap'
 import Swal from 'sweetalert2'
 const { VITE_URL, VITE_PATH } = import.meta.env
@@ -157,13 +200,21 @@ export default {
       delData: {},
       delId: '',
       disabled: false,
+      addressData: '',
+      address: {
+        city: '',
+        areaName: '',
+        index: '',
+        areaList: [],
+      },
       user: {
-        email: ''
+        email: '',
+        address: '',
+        phone: ''
       }
     }
   },
   components: {
-    ab
   },
   methods: {
     nextBtn(){
@@ -175,7 +226,6 @@ export default {
     getCartData () {
       this.$http.get(`${VITE_URL}/v2/api/${VITE_PATH}/cart`)
         .then((res) => {
-          console.log(res)
           this.cartData = res.data.data
         })
         .catch((err) => {
@@ -218,11 +268,34 @@ export default {
         .catch((err) => {
           console.log(err)
         })
+    },
+    getAddressData () {
+      this.$http.get(`https://raw.githubusercontent.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON/master/AllData.json`)
+        .then((res) => {
+          this.addressData = res.data
+          console.log(res)
+          console.log(this.addressData)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    city () {
+      console.log(this.address.city)
+      this.address.areaName = ''
+      const index = this.addressData.findIndex(item => item.CityName === this.address.city);
+      this.address.index = index
+      this.address.areaList = { ...this.addressData[index].AreaList }
+    },
+    isPhone(value) {
+    const phoneNumber = /^(09)[0-9]{8}$/
+    return phoneNumber.test(value) ? true : '需要正確的電話號碼'
     }
   },
   mounted () {
     this.getCartData()
     this.delModal = new Modal(this.$refs.delModal)
+    this.getAddressData()
   }
 }
 </script>
