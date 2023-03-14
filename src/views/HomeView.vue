@@ -46,49 +46,64 @@
     <swiper class="d-md-none"></swiper>
     <div class="row teacher">
       <div class="col-md-6 p-0 mb-6 mb-md-0">
-        <div class="d-flex justify-content-md-end justify-content-center me-xxl-42 me-xl-30 me-md-3">
-          <div class="card border-primary border-3" style="width: 362px;">
-            <div class="bg-primary border-primary">
-              <div class="rounded-circle border border-secondary position-relative " style="width: 308px;">
-                <div class="teacher-1 m-5"></div>
-                <img src="../assets/images/Ellipse18.png" alt="" class="position-absolute top-0 end-0">
+        <RouterLink to="teachers">
+          <div class="d-flex justify-content-md-end justify-content-center me-xxl-42 me-xl-30 me-md-3">
+            <div class="card border-primary border-3" style="width: 362px;">
+              <div class="bg-primary border-primary">
+                <div class="rounded-circle border border-secondary position-relative " style="width: 308px;">
+                  <div class="teacher-1 m-5"></div>
+                  <img src="../assets/images/Ellipse18.png" alt="" class="position-absolute top-0 end-0">
+                </div>
               </div>
-            </div>
-            <div class="card-body bg-primary p-0">
-              <h5 class="card-title mt-6 text-center mb-8" >Aaliyah</h5>
-              <p class="card-text mb-6 fs-6">人的一生中，與自己的對話，多過與別人的對話 但我們對自己講的話，不一定是溫和，真實，有幫助， 有時甚至毫不尊重．</p>
-              <div class="text-center">
-                <button type="button" class="btn btn-secondary rounded-pill px-10 py-3">課程連結</button>
+              <div class="card-body bg-primary p-0">
+                <h5 class="card-title mt-6 text-center mb-8" >Aaliyah</h5>
+                <p class="card-text mb-6 fs-6">人的一生中，與自己的對話，多過與別人的對話 但我們對自己講的話，不一定是溫和，真實，有幫助， 有時甚至毫不尊重．</p>
+                <div class="text-center">
+                  <button type="button" class="btn btn-secondary rounded-pill px-10 py-3">課程連結</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </RouterLink>
       </div>
       <div class="col-md-6 p-0">
         <div class="d-flex justify-content-md-start justify-content-center ms-xxl-42 ms-xl-30 ms-md-3">
-          <div class="card border-primary border-3" style="width: 362px;">
-            <div class="bg-primary border-primary">
-              <div class="rounded-circle border border-secondary position-relative" style="width: 308px;">
-                <div class="teacher-2 m-5"></div>
-                <img src="../assets/images/Ellipse18.png" alt="" class="position-absolute bottom-0 end-0">
+          <RouterLink to="teachers">
+            <div class="card border-primary border-3" style="width: 362px;">
+              <div class="bg-primary border-primary">
+                <div class="rounded-circle border border-secondary position-relative" style="width: 308px;">
+                  <div class="teacher-2 m-5"></div>
+                  <img src="../assets/images/Ellipse18.png" alt="" class="position-absolute bottom-0 end-0">
+                </div>
+              </div>
+              <div class="card-body bg-primary p-0">
+                <h5 class="card-title mt-6 text-center mb-8">Aaliyah</h5>
+                <p class="card-text mb-6 fs-6">改變往往不像Nike說的那麼單純: Just Do it ，也不像許新年願望那麼簡單，改變需要通過一連串階段，讓你慢慢的好起來...</p>
+                <div class="text-center">
+                  <button type="button" class="btn btn-secondary rounded-pill px-10 py-3">課程連結</button>
+                </div>
               </div>
             </div>
-            <div class="card-body bg-primary p-0">
-              <h5 class="card-title mt-6 text-center mb-8">Aaliyah</h5>
-              <p class="card-text mb-6 fs-6">改變往往不像Nike說的那麼單純: Just Do it ，也不像許新年願望那麼簡單，改變需要通過一連串階段，讓你慢慢的好起來...</p>
-              <div class="text-center">
-                <button type="button" class="btn btn-secondary rounded-pill px-10 py-3">課程連結</button>
-              </div>
-            </div>
-          </div>
+          </RouterLink>
         </div>
       </div>
     </div>
   </div>
   <div class="container-lg mt-md-30 mt-15 mb-md-30 mb-15 article">
-    <div class=" bg-F7F3F0 mb-8">
-      <div class="row align-items-center px-3 py-4 offset-xl-2 bg-F7F3F0">
-        <div class="col-4 col-md-2 p-0 d-flex justify-content-center ms-0">
+    <div class=" mb-8">
+      <div class="row align-items-center px-3 py-4 bg-F7F3F0 mb-6">
+        <div class="d-flex align-items-center col-8 offset-2">
+          <div class=" p-0  me-6">
+            <img src="../assets/images/Group.png" alt="">
+          </div>
+          <div class=" p-0 mb-5 me-19 fs-5">
+            <p class="m-0">20年的婚姻，終究沒能繼續下去，而當我的人生，只為活而活時，我感覺我需要幫助而到了這裡遇見XXX心理師，他引導著我，找到屬於我的意義...</p>
+          </div>
+          <div class=" p-0 d-flex">
+            <button class="btn btn-primary rounded-pill text-white">更多故事</button>
+          </div>
+        </div>
+      <!--   <div class="col-4 col-md-2 p-0 d-flex justify-content-center ms-0">
           <img src="../assets/images/Group.png" alt="">
         </div>
         <div class="col-xl-5 col-md-10 col-8 p-0 mb-5 mb-md-0 fs-5 ">
@@ -96,7 +111,7 @@
         </div>
         <div class=" p-0 ms-xxl-19 ms-xl-11 d-xl-block d-flex justify-content-end col-xl-2">
           <button class="btn btn-primary px-10 py-3 rounded-pill text-white">更多故事</button>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -138,7 +153,7 @@
       <div class="row">
         <h2 class="text-white text-center mt-md-48 mt-15 fs-1 mb-md-6 mb-8">只差最後一步，就可以開始探索自己</h2>
         <div class="d-flex justify-content-center">
-          <button type="button" class="btn btn-primary rounded-pill fs-6 text-white px-10 py-3">立即找到您的人生導師</button>
+          <RouterLink to="teachers" type="button" class="btn btn-primary rounded-pill fs-6 text-white px-10 py-3">立即找到您的人生導師</RouterLink>
         </div>
       </div>
     </div>

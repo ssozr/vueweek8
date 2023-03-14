@@ -1,7 +1,13 @@
 <template>
   <div class="container p-0">
     <div class="row">
-      <table class="table align-middle">
+      <div v-if="cartData.total === 0" class="text-center my-30">
+        <div class="d-flex justify-content-center">
+          <h2 class="mb-10  border-bottom border-3 border-primary">尚未收錄課程</h2>
+        </div>
+        <RouterLink to="teachers" class="btn btn-primary">立即前往課程列表</RouterLink>
+      </div>
+      <table v-else class="table align-middle">
       <thead>
         <tr class="text-center">
           <th scope="col">課程名稱</th>
@@ -43,10 +49,6 @@
         </tr>
       </tbody>
       </table>
-   <!--    <div class=" fs-4 d-flex col-4 offset-6 align-items-end justify-content-end">
-        <h2 class="border-bottom border-primary border-3 mb-0">總金額:NT <span class="ms-1">{{ cartData.total }}</span></h2>
-        <button type="button" class="btn btn-primary fs-3 ms-3">結帳</button>
-      </div> -->
     </div>
     <!-- Modal -->
     <div class="modal" tabindex="-1" ref="delModal">
