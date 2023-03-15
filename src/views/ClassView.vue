@@ -1,71 +1,51 @@
-<style>
-.card-img {
-  height: 268px;
-  width: 268px;
-  object-fit: cover;
-  object-position: center;
-}
-.imgI {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  object-position: center;
-}
-</style>
+
 
 <template>
-  <div class="container mb-15">
+  <div class="container mb-15 teacher">
     <div class="row">
       <div class="text-center p-0 mb-10">
         <img :src="classData.imagesUrl" class="imgI" alt="">
       </div>
       <div class="mb-10">
-        <h2 class="border-bottom border-primary border-3">{{ classData.title }} <span class="fs-6 ps-5">{{ classData.description }}</span></h2>
+        <h2 class="border-bottom border-primary border-3 pb-3">{{ classData.title }} <span class="fs-6 mt-lg-0 mt-3 ps-lg-5 d-inline-block">{{ classData.description }}</span></h2>
       </div>
-      <div class="row">
-        <div class="col-8 d-flex flex-column">
-          <p class="fs-4 mb-15">{{ classData.content }}</p>
-          <div class="d-flex justify-content-between  align-items-end">
+      <div class="row flex-lg-row-reverse">
+        <div class="col-lg-4 text-center">
+          <img :src="classData.imageUrl" alt="" class="card-img rounded-circle mb-4">
+          <h3 class="mb-6 mb-lg-0">授課老師:{{ classData.unit }}</h3>
+        </div>
+        <div class="col-lg-8 d-flex flex-column justify-content-between">
+          <p class="fs-4 mb-lg-15 mb-8">{{ classData.content }}</p>
+          <div class="d-lg-flex text-lg-start text-center justify-content-between  align-items-end">
             <ul class="p-0 m-0">
               <li><p class="fs-4">課程堂數:<span class="ms-4">{{ classData.origin_price }}堂</span></p></li>
               <li><p class="fs-4 m-0">課程總額:<span class="ms-4">NT${{ classData.price }}</span></p></li>
             </ul>
-            <div class="d-flex">
+            <div class="d-lg-flex mt-3">
               <button type="button" class="btn btn-primary" @click="addCart(classData)">收藏課程</button>
-              <button type="button" class="btn btn-primary ms-6">立即上課</button>
+              <button to="/cart" type="button" class="btn btn-primary ms-6" @click="changeGoCart(classData)">立即上課</button>
             </div>
           </div>
         </div>
-        <div class="col-4 text-center">
-          <img :src="classData.imageUrl" alt="" class="card-img rounded-circle mb-4">
-          <h3>授課老師:{{ classData.unit }}</h3>
-        </div>
       </div>
-<!--       <div class="row">
-        <div class="col-6">
-          <ul class="p-0">
-            <li><p class="fs-4">課程堂數:<span class="ms-4">{{ classData.origin_price }}堂</span></p></li>
-            <li><p class="fs-4">課程總額:<span class="ms-4">NT${{ classData.price }}</span></p></li>
-          </ul>
-        </div>
-        <div class="col-6">
-          <button type="button" class="btn btn-primary">收藏課程</button>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router'
 import Swal from 'sweetalert2'
 const { VITE_PATH, VITE_URL} = import.meta.env
 export default{
   data () {
     return {
       classData: {},
-      id: ''
-      
+      id: '',
+      goCart: false,
     }
+  },
+  components: {
+    RouterLink
   },
   methods: {
     getClassData () {
@@ -86,12 +66,22 @@ export default{
       this.$http.post(`${VITE_URL}/v2/api/${VITE_PATH}/cart`, { data })
         .then((res) => {
           console.log(res)
-          Swal.fire(`${res.data.message}`)
+          if(this.goCart === false){
+            Swal.fire(`${res.data.message}`)
+          }else{
+            this.goCart = false
+            this.$router.push('/cart')
+          }
         })
         .catch((err) => {
           console.log(err)
         })
+    },
+    changeGoCart (item) {
+      this.goCart = true
+      this.addCart(item)
     }
+    
   },
   mounted () {
     const { id } = this.$route.params

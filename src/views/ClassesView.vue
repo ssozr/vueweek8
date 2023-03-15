@@ -18,10 +18,10 @@
 </style>
 
 <template>
-  <div class="container-fluid bg-primary">
+  <div class="container-fluid">
     <div class="container py-15 px-0">
       <div class="mb-4">
-        <select class="btn btn-secondary" @change="changeClass">
+        <select class="btn btn-primary" @change="changeClass">
           <option value="" selected>全部課程</option>
           <option value="自我成長">自我成長</option>
           <option value="感情婚姻">感情婚姻</option>
@@ -30,8 +30,7 @@
         </select>
       </div>
       <div class="row">
-        <RouterLink :to="`/class/${product.id}`" v-for="(product, i) in classData" :key="i" class="col-lg-4 col-md-6 mb-8 card-group justify-content-center product ">
-          
+        <RouterLink :to="`/class/${product.id}`" v-for="(product, i) in classData" :key="i" class="col-lg-4 col-md-6 mb-8 border-0 card-group justify-content-center product ">
             <div class="card h-100 bg-primary border-0 mt-4">
               <div class="d-flex justify-content-center" >
                 <div class="d-flex justify-content-center align-items-center border rounded-circle border-secondary" style="width: 308px height: 308px;">
@@ -44,7 +43,7 @@
                   <p class="card-text fs-6">{{ product.description }}</p>
                 </div>
               </div>
-              <div class="card-footer text-center mb-4 bg-secondary">
+              <div class="card-footer text-center mb-4 bg-secondary text-white">
                 詳細介紹
               </div>
             </div>
