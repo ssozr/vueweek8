@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
 import Swal from 'sweetalert2'
 const { VITE_PATH, VITE_URL} = import.meta.env
 export default{
@@ -45,7 +44,6 @@ export default{
     }
   },
   components: {
-    RouterLink
   },
   methods: {
     getClassData () {

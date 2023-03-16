@@ -179,7 +179,7 @@
 </template>
 
 <script>
-import swiper from '../components/Swiper.vue'
+import swiper from '../components/SwiperComponent.vue'
 export default {
   components: {
     swiper

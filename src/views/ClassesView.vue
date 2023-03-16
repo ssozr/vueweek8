@@ -83,7 +83,7 @@ export default {
         this.pagination = res.data.pagination
       })
       .catch((err) => {
-        coneosl.log(err)
+        console.log(err)
       })
     },
     changePage (page) {
