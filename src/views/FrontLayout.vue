@@ -28,7 +28,7 @@
         <div class="container-fluid">
           <div class="row justify-content-center">
             <div class="text-center ps-0 pb-16">
-              <RouterLink to="/"  @click="changeBtn()"><img h-24 src="https://s3-alpha-sig.figma.com/img/c808/7901/34a7249bffdfebe8fca256378bad1a3e?Expires=1678665600&Signature=VsPOZUuQP70-5ZMFIs6MfeHIY~OtNV701HU5eIwArSWPfhJL3KFdgwOR5Jy4ver~fKF5dHdMahBUmPXohZMnJ05u6tFWLJlYUWF60oz~ln8tQrvova9RFzRIO5FzMI9cd8X2KqQSak8fAgmoobDANqP6b~xML7Xa~ATvVJTGLXwGpIAir6fz1-1DxK1s1XnqET3SIpGIkaaYgayKQG~Zc4KcrnrY4TRUn8mgy6dAs-6wfnQ~Bj22O7vd6R9ImiQn4plRdCu0unPXGVkoR~XWunm3no9KMU8SrB8ldIrDu8Z8VeUGRyadGaMEMIE7m8JfYRXcq2pEJNoFWAW~i72XtQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt=""></RouterLink>
+              <RouterLink to="/"  @click="changeBtn()"><img h-24 src="../assets/images/正視心靈.png" alt=""></RouterLink>
             </div>
             <ul>
               <li class="fs-6 text-center mb-8" @click="changeBtn()"><RouterLink to="/articles">文章分享</RouterLink></li>
