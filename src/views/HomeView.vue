@@ -109,10 +109,10 @@
         <h2 class="fs-1 text-center mb-md-15 mb-8 border-bottom border-primary border-2 pb-3">陪伴無數朋友們，重新認識自己</h2>
       </div>
       <div class="row align-items-center px-3 py-8 bg-F7F3F0 mb-6 border-bottom border-primary border-4">
-          <div class="offset-lg-2 p-0 col-lg-1 col-2">
+          <div class="offset-lg-2 col-xl-1 p-0 col-lg-2 col-sm-3 col-md-2 text-center mb-3">
             <img src="../assets/images/Group.png" alt="">
           </div>
-          <div class=" p-0 mb-5 col-lg-6 col-10 fs-5">
+          <div class=" p-0 mb-5 col-xl-6 col-lg-5 col-sm-9 col-md-10 fs-5">
             <p class="m-0">20年的婚姻，終究沒能繼續下去，而當我的人生，只為活而活時，我感覺我需要幫助而到了這裡遇見XXX心理師，他引導著我，找到屬於我的意義...</p>
           </div>
           <div class="col-lg-3 ps-19 pe-0 d-lg-block d-flex justify-content-end">
@@ -120,8 +120,8 @@
           </div>
       </div>
       <div class="row align-items-center px-3 py-8 bg-F7F3F0 mb-6 border-bottom border-primary border-4">
-          <div class="offset-lg-2 p-0 col-lg-1 col-2">
-            <img src="../assets/images/Group (1).png" alt="">
+          <div class="offset-lg-2 col-xl-1 p-0 col-lg-2 col-sm-3 col-md-2 text-center mb-3">
+            <img src="../assets/images/Group2.png" alt="">
           </div>
           <div class=" p-0 mb-5 col-lg-6 col-10 fs-5">
             <p class="m-0">［你的眼睛正在打開，而他的卻在闔上］一句話讓我當場淚崩，我不想將來才 後悔，沒有好好的和父母擁抱．</p>
