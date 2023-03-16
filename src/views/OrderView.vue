@@ -266,6 +266,7 @@
 </template>
 
 <script>
+
 import { Modal } from 'bootstrap'
 import Swal from 'sweetalert2'
 import { RouterLink } from 'vue-router'

@@ -103,7 +103,7 @@
       </div>
     </div>
   </div>
-  <div class="container-lg mt-md-30 mt-15 mb-md-30 mb-15 article">
+  <div class="container-lg mt-md-30 mt-15 mb-md-30 mb-15 index-article">
     <div class=" mb-8">
       <div class="d-flex justify-content-center">
         <h2 class="fs-1 text-center mb-md-15 mb-8 border-bottom border-primary border-2 pb-3">陪伴無數朋友們，重新認識自己</h2>
