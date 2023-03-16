@@ -116,7 +116,7 @@
             <p class="m-0">20年的婚姻，終究沒能繼續下去，而當我的人生，只為活而活時，我感覺我需要幫助而到了這裡遇見XXX心理師，他引導著我，找到屬於我的意義...</p>
           </div>
           <div class="col-lg-3 ps-19 pe-0 d-lg-block d-flex justify-content-end">
-            <button class="btn btn-secondary rounded-pill text-white fs-6">更多故事</button>
+            <RouterLink :to="`/articles`" class="btn btn-secondary rounded-pill text-white fs-6">更多故事</RouterLink>
           </div>
       </div>
       <div class="row align-items-center px-3 py-8 bg-F7F3F0 mb-6 border-bottom border-primary border-4">
@@ -127,7 +127,7 @@
             <p class="m-0">［你的眼睛正在打開，而他的卻在闔上］一句話讓我當場淚崩，我不想將來才 後悔，沒有好好的和父母擁抱．</p>
           </div>
           <div class="col-lg-3 ps-19 pe-0 d-lg-block d-flex justify-content-end">
-            <button class="btn btn-secondary rounded-pill text-white fs-6">更多故事</button>
+            <RouterLink :to="`/articles`" class="btn btn-secondary rounded-pill text-white fs-6">更多故事</RouterLink>
           </div>
       </div>
     </div>
@@ -179,10 +179,12 @@
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
 import swiper from '../components/SwiperComponent.vue'
 export default {
   components: {
-    swiper
+    swiper,
+    RouterLink
   }
 }
 </script>
