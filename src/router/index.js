@@ -49,6 +49,32 @@ const router = createRouter({
       ]
       
     },
+    {
+      path: '/login',
+      component: () => import('../views/UserLogin.vue')
+    },
+    {
+      path: '/user',
+      component: () => import('../views/UserView.vue'),
+      children: [
+        {
+          path: '/userorders',
+          component: () => import('../views/user/UserOrders.vue')
+        },
+        {
+          path: '/userprodeuts',
+          component: () => import('../views/user/UserProducts.vue')
+        },
+        {
+          path: '/voucher',
+          component: () => import('../views/user/VoucherView.vue')
+        },
+        {
+          path: '/article',
+          component: () => import('../views/user/ArticleView.vue')
+        }
+      ]
+    }
   ]
 })
 
